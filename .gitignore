@@ -2,5 +2,6 @@ EDA/.ipynb_checkpoints/
 
 # Data files
 data/*
+Data/
 # Except for the metadata folder
 !data/metadata/*
