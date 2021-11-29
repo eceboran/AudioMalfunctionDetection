@@ -1,0 +1,3 @@
+- The pump, fan and slide rail sounds are all continouous sounds. The Valve sounds however are not so, and each sound file contains several of open and close movements at different times. Is it reasonable to assume that it is more accurate to listen to each open / close movemen individually?
+- Each machine type is plit up into different models. How similar are the models? Is it reasonable to assume that the sounds of an normal vs abnormal functionaing are similar enough to be treated as one or are the so different that we will have to split the functioning?
+- For each machine type there are different types of abnormalities. Are these categorized anywhere?
