@@ -1,9 +1,9 @@
-EDA/.ipynb_checkpoints/*
+EDA/.ipynb_checkpoints/
 Testing/.ipynb_checkpoints/
-.ipynb_checkpoints/*
+.ipynb_checkpoints/
 
 # Data files
-data/*
+data/
 Data/
 # Except for the metadata folder
-!data/metadata/*
+!data/metadata/
