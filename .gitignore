@@ -3,6 +3,6 @@ Testing/.ipynb_checkpoints/
 .ipynb_checkpoints/
 
 # Data files
-data/
+data/source/
 # Except for the metadata folder
-!data/metadata/*
+# !data/metadata/*
