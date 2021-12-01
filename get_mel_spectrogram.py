@@ -1,4 +1,7 @@
+import sys
+import numpy as np
 import librosa
+
 
 def get_mel_spectrogram(file_path, window, overlap=None, n_fft=None, n_mels=32, no_channel=None, machine=None):
     
