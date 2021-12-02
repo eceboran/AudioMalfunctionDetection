@@ -3,7 +3,7 @@ import numpy as np
 import librosa
 
 
-def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, fmin=0, fmax=None, no_channel=None, machine=None):
+def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, fmin=0, fmax=None, no_channel=None, machine=None, normalize_signal=False):
     
     # Load the signal
     signal, fs = librosa.load(file_path, sr=None, mono=False)
@@ -19,6 +19,10 @@ def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, f
     else:
         signal = signal[no_channel, :]
     
+    # Normalize the signal
+    if normalize_signal == 'z-score':
+        signal = (signal - signal.mean()) / signal.std()
+
     # Window length in samples
     window_length = int(window*fs)
     
