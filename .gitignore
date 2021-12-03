@@ -2,6 +2,7 @@ EDA/.ipynb_checkpoints/
 Testing/.ipynb_checkpoints/
 Modeling/Models/
 .ipynb_checkpoints/
+__pycache__/
 
 # Data files
 data/source/
