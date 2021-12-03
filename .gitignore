@@ -1,7 +1,17 @@
-EDA/.ipynb_checkpoints/
-
 # Data files
-data/*
-Data/
+data/source/
 # Except for the metadata folder
-!data/metadata/*
+# !data/metadata/*
+
+# ipynb_checkpoints folders
+Metadata/.ipynb_checkpoints/
+Modeling/.ipynb_checkpoints/
+Testing/.ipynb_checkpoints/
+.ipynb_checkpoints/
+
+# pycache
+__pycache__/
+Modeling/Models/__pycache__/
+
+# Models
+Modeling/Models/
