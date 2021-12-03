@@ -4,6 +4,7 @@ data/source/
 # !data/metadata/*
 
 # ipynb_checkpoints folders
+Metadata/.ipynb_checkpoints/
 Modeling/.ipynb_checkpoints/
 Testing/.ipynb_checkpoints/
 .ipynb_checkpoints/
