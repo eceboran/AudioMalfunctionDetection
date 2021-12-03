@@ -2,14 +2,94 @@
 Project for detecting machine malfunction from audio files.
 
 
-# Workflow 
+### Exploring the Data
+
+The data comprises of 10 second sound samples that recorded normal or abnormal features of 
+machines during production. There are four types of machines : valves, pumps, fans and slide rails.
+
+...
+
+### Channel optimization
+
+The device the client will be using for the signal detection are the TAMAGO-03 microphones from
+*System In Frontier Inc.*, which uses an array of 8 microphones to detect sounds from all angels.
+
+![](Images/mic-array.jpg)
+
+ Each microphone is directed towards a machine, and picks that signale up louder that the others,
+ represented here.
+ 
+ **insert signal image here**
+ 
+ When the accuracy is plotted against each channel it gives us these results.
+
+![](Images/acc_per_channel.png)
+
+Our ideal pipeline would be to split the channel, and use the optimal channel for each machine.
+For each machine a seperate detection is made optimizing the results.
+
+### PreProcessing
+
+Each signal is converted into unique mel spectrograms that look like these:
+
+![](Images/spectrograms.jpg)
+
+The precise parameters of this generation are optimized for each machine_type,
+using a train and validation dataset split.
+
+### Model Types
+
+For each machine type there are several different models, the accuracy per model deviates and is not
+the same shown in the following graph:
+
+![](Images/acc_per_model.png)
+
+From this we can conclude that for some models we can predict failure close to perfectly and for some others
+the prediction is less otimal.
+
+### Valves
+
+Due to their placement in the factory the valves are of significant importance. Any failure of a valve
+can cause malfunction in the pumps, which are far harder to repair or replace. As such we placed
+special importance on detecting failure in them.
+
+In contrast to pump, fan and slide rails that have a continouous sound recording the valves open and
+close at different intervals.
+
+![](Images/Valve.jpg)
+
+We noticed that a portion of the malfunctions happen because of irregularities in the time intervals between these operations. 
+
+![](Images/valv_t.jpg)
+
+Calculating the average of these time intervals per sound sample gave a realistic range of normal functioning.
+
+![](Images/avg_cutoff.png)
+
+applying a threshold over the averages automatically cuts the top of the abnormale group on th right.
+This is a group of about 9% of all valve malfunctions that are detected with 100% precision almost immediately.
+
+After this normal detections are used to complement accuracy of the other malfunctions.
+
+### models
+
+Two types of models have been trained for the detection, KNN algorithms and One class SVMs. 
+Both of these models have been trained and tested on the full dataset and have been 
+cross-validated to avoid overfitting.
+
+Details of the performance of KNN:
+
+![](Images/acc_per_machine.png)
+
+
+### Workflow 
 - We decided to use the signals with the highest SNR (6 dB)(signal-to-noise ratio) (are they?) for further steps.
 We will go back to the other signals if we have time.
 
 
 
 
-# Notes Ece
+### Notes Ece
 From librosa:
 "If you are using the library for your work, for the sake of reproducibility, please cite
 the version you used as indexed at Zenodo:
