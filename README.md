@@ -24,7 +24,7 @@ The device the client will be using for the signal detection are the TAMAGO-03 m
  Each microphone is directed towards a machine, and picks that signale up louder that the others,
  represented here.
  
- **insert signal image here**
+ ![](Images/signal_per_channel.png)
  
  When the accuracy is plotted against each channel it gives us these results.
 
