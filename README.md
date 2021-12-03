@@ -6,8 +6,13 @@ Project for detecting machine malfunction from audio files.
 
 The data comprises of 10 second sound samples that recorded normal or abnormal features of 
 machines during production. There are four types of machines : valves, pumps, fans and slide rails.
+Each machine has samples of 4 different models of the same type.
 
-...
+![](Images/samples_per_model.png)
+
+The normal to abnormal ration per machine type looks like this:
+
+![](Images/normal_abnormal_ratio.png)
 
 ### Channel optimization
 
