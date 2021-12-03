@@ -78,13 +78,19 @@ After this normal detections are used to complement accuracy of the other malfun
 
 ### Models
 
-Two types of models have been trained for the detection, KNN algorithms and One class SVMs. 
+Two types of models have been trained for the detection, KNN algorithms and One-class SVMs. 
 Both of these models have been trained and tested on the full dataset and have been 
 cross-validated to avoid overfitting.
 
 Details of the performance of KNN:
 
 ![](Images/acc_per_machine.png)
+
+
+We plotted the precision-recall curve for the one-class SVM model, with different hyperparameters. 
+It has been trained on half the dataset and tested on the other half.
+We can select a classifier based on the client's priorities regarding precision and recall.
+![](Images/one-class-svm-precision-recall.png)
 
 
 This project used librosa <a href="https://doi.org/10.5281/zenodo.591533" rel=nofollow><img alt=DOI src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b9a66e7e2aad964da52c5254b5a75e4ebba92197/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e3539313533332e737667">
