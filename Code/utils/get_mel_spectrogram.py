@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+import numpy.matlib
 import librosa
 
 
@@ -34,7 +35,7 @@ def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, f
     
     # Default n_fft is the smallest power of 2 larger than win_length
     if n_fft==None:
-        n_fft = int(2**np.ceil(np.log2(window_length)))
+        n_fft = window_length # int(2**np.ceil(np.log2(window_length)))
     
     # Default min frequency is zero
     fmin = 0
@@ -59,22 +60,36 @@ def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, f
                                 n_fft=n_fft,
                                 fmin=fmin,
                                 fmax=fmax)
-    
+
+    # Centers of time windows TODO
+    no_windows = mel_spect.shape[1]
+
     # Centers of mel filter bands
     filter_banks = librosa.filters.mel(sr=fs, n_fft=n_fft, n_mels=n_mels)
     freq_axis = np.linspace(fmin, fmax, n_fft//2+1)
     mel_center_freq = freq_axis[np.argmax(filter_banks, axis=1)]
-    
+
+    # Frequency and time indices of point in the grid
+    no_window_grid = np.matlib.repmat(np.arange(0, no_windows).reshape(1, -1), n_mels, 1)
+    no_freq_grid = np.matlib.repmat(np.arange(0, n_mels).reshape(-1, 1), 1, no_windows)
+    ft_grid_names = np.empty(no_window_grid.shape).astype(str)
+    for i in range(0, no_window_grid.shape[0]):
+        for j in range(0, no_window_grid.shape[1]):
+            ft_grid_names[i, j] = f"{no_freq_grid[i, j]}_{no_window_grid[i, j]}"
+
     params = {}
     params['window'] = window
     params['window_length'] = window_length
+    params['no_windows'] = no_windows
     params['overlap'] = overlap
     params['overlap_length'] = overlap_length
     params['hop_length'] = hop_length
     params['n_fft'] = n_fft
     params['n_mels'] = n_mels
+    params['fs'] = fs
     params['fmin'] = fmin
     params['fmax'] = fmax
     params['mel_center_freq'] = mel_center_freq
+    params['ft_grid_names'] = ft_grid_names
     
     return mel_spect, mel_spect_db, mfcc, params
