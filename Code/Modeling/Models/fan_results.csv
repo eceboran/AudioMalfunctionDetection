@@ -1,0 +1,2 @@
+,window,window_length,overlap,overlap_length,hop_length,n_fft,n_mels,n_neighbor,channel,accuracy,recall,precision,f1,cross_val_scores,cross_val_mean,cross_val_stdev
+0,1,16000,0.5,8000,8000,16384,32,5,3,0.990990990990991,0.994061757719715,0.9820143884892086,0.9878556330169233,[0.96396396 0.97297297 0.9954955  0.97297297 0.98198198],97.74774774774775,1.0659603212792095

@@ -1,7 +1,5 @@
 # Data files
-data/source/
-# Except for the metadata folder
-# !data/metadata/*
+Data/Source/
 
 # ipynb_checkpoints folders
 Metadata/.ipynb_checkpoints/
@@ -15,3 +13,5 @@ Modeling/Models/__pycache__/
 
 # Models
 Modeling/Models/
+
+questions.md
