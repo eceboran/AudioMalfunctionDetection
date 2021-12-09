@@ -11,6 +11,9 @@ def get_melspec_features_from_files(data_dir, df_input, window, overlap = 0.5, n
     y = []
 
     for idx, row in df_input.iterrows():
+        if idx % 50 == 0:
+            print(f"Calculation at {idx/df_input.shape[0]*100:.2f}%")
+            
         file_path = os.path.join(data_dir, row.file_rel_path)
         fs = row.fs_Hz
 

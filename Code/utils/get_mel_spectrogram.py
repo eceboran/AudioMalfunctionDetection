@@ -35,12 +35,12 @@ def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, f
     
     # Default n_fft is the smallest power of 2 larger than win_length
     if n_fft==None:
-        n_fft = window_length # int(2**np.ceil(np.log2(window_length)))
+        n_fft = int(2**np.ceil(np.log2(window_length)))
     
     # Default min frequency is zero
-    fmin = 0
     # Default max frequency is half of the sampling frequency
-    fmax = fs/2
+    if fmax==None:
+        fmax = fs/2
     
     # Compute mel spectogram
     mel_spect = librosa.feature.melspectrogram(y=signal, sr=fs, 
