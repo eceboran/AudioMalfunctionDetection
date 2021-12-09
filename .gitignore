@@ -1,5 +1,6 @@
 # Data files
 Data/Source/
+Data/Features/
 
 # ipynb_checkpoints folders
 Metadata/.ipynb_checkpoints/

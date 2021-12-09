@@ -48,7 +48,7 @@ def get_melspec_features_from_files(data_dir, df_input, window, overlap = 0.5, n
     X = pd.DataFrame(X)
     X.columns = ft_grid_names.flatten()
     y = pd.DataFrame(y)
-    y.columns = ['target']
+    y.columns = ['anomaly']
 
     Xy = X.join(y)
 
