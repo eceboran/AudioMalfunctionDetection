@@ -2,6 +2,7 @@ import sys
 import numpy as np
 import numpy.matlib
 import librosa
+from utils.get_mel_frequency_bands import get_mel_frequency_bands
 
 
 def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, fmin=0, fmax=None, no_channel=None, machine=None, normalize_signal=False):
@@ -65,9 +66,7 @@ def get_mel_spectrogram(file_path, window, overlap=0.5, n_fft=None, n_mels=32, f
     no_windows = mel_spect.shape[1]
 
     # Centers of mel filter bands
-    filter_banks = librosa.filters.mel(sr=fs, n_fft=n_fft, n_mels=n_mels)
-    freq_axis = np.linspace(fmin, fmax, n_fft//2+1)
-    mel_center_freq = freq_axis[np.argmax(filter_banks, axis=1)]
+    mel_center_freq, freq_axis = get_mel_frequency_bands(fs, n_mels, n_fft=n_fft, fmin=fmin, fmax=fmax)
 
     # Frequency and time indices of point in the grid
     no_window_grid = np.matlib.repmat(np.arange(0, no_windows).reshape(1, -1), n_mels, 1)
