@@ -124,7 +124,26 @@ Below are the number of samples from each model (rows) in each cluser (columns):
 
 ![](Images/fan_model_4_clusters_confusion_matrix.png)
 
+We were able to separate models with an unsupervised model. This could be useful in the future for determining 
+which exact machine (of a specific type) is malfunctioning on the factory floor.
 
+
+We focused on model id_04 for further analysis. 
+
+Below is a graph with 4 clusters. In the top graph, colors represent clusters, in the bottom 
+graph, colors represent anomalies.
+
+![](Images/fan_model_4_4_clusters.png)
+
+Below are the number of samples from each model (rows) in each cluser (columns):
+
+![](Images/fan_model_4_anomaly_cluster_4_clusters_confusion_matrix.png)
+
+Unsupervised learning reveals 4 clusters, one of which corresponds to normal operation. 
+The other 3 clusters represent mostly abnormal sounds. We believe these correspond to 
+different types of malfunctioning by the machine. We believe with further improvements on the classifier, we will 
+be able to identify what type of maintenance will be required for a specific machine, in addition to the 
+timing of maintenance.
 
 
 ## Installation
