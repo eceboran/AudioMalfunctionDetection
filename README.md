@@ -174,7 +174,11 @@ python3 -m pip install -r requirements.txt
 ```python
 conda install --file requirements.txt 
 
-
+Run the notebooks below for results:
+- Code/Modeling/Unsupervised/unsupervised_fan_load_features.ipynb
+- Code/Modeling/Unsupervised/unsupervised_fan_model_load_features.ipynb
+![unsupervised_fan_load_features.ipynb](Code/Modeling/Unsupervised/unsupervised_fan_load_features.ipynb)
+a
 
 This project used librosa <a href="https://doi.org/10.5281/zenodo.591533" rel=nofollow><img alt=DOI src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b9a66e7e2aad964da52c5254b5a75e4ebba92197/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e3539313533332e737667">
 <p>McFee, Brian, Colin Raffel, Dawen Liang, Daniel PW Ellis, Matt McVicar, Eric Battenberg, and Oriol Nieto. "librosa: Audio and music signal analysis in python." In Proceedings of the 14th python in science conference, pp. 18-25. 2015.</p>
