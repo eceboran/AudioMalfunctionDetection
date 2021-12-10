@@ -1,0 +1,1 @@
+{"window": 1, "window_length": 16000, "no_windows": 21, "overlap": 0.5, "overlap_length": 8000, "hop_length": 8000, "n_fft": 16384, "n_mels": 32, "fs": 16000, "fmin": 0, "fmax": 8000.0}
