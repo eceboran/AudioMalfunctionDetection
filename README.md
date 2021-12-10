@@ -91,7 +91,9 @@ Details of the performance of KNN:
 #### One-class SVM
 The algorithm one-class SVM aims to model a large number of "normal" samples, then distinguish "abnormal" samples
 as those that deviate from the model, i.e. get a low score. We trained the classifier by adjusting the hyperparameters 
-that give the best classification for the validation set.
+that give the best classification for the validation set. As features, we used mel-frequency cepstral coefficients. 
+These features are best suited for representing sound signals in the time-frequency domain.
+
 Considering the nature of the problem, precision and recall are the best metrics to evaluate performance. In our problem,
 high precision means most of the samples that are labeled as abnormal are in fact abnormal. High precision ensures that 
 when workers are prompted to check a machine by the automatized system, they find a machine that is in fact abnormally 
@@ -112,9 +114,14 @@ can do this with numerical data from you. With this, we can choose the model par
 
 ### Clustering
 We aim to discover if the data you provided could be automatically labeled. This would allow saving substantial 
-time for further data you collect from the factory floor. We focused on labeling machine models, and anomalies.
+time for further data you collect from the factory floor. We focused on labeling machine models, and anomalies. We 
+first focused on samples from fans.
 
-We clustered audio recordings from fans, and realized the automatically formed clusters correspond 
+In order to determine the optimum number of clusters, we used a method called the elbow method. 
+![](Images/elbow_fan.png)
+The method suggested using 4 clusters, which we suspected corresponds to machine models.
+
+We clustered audio recordings from fans, and realized the automatically formed clusters indeed correspond 
 strongly to fan models. Below is a graph with 4 clusters. In the top graph, colors represent clusters, in the bottom 
 graph, colors represent fan models. 
 
@@ -126,7 +133,6 @@ Below are the number of samples from each model (rows) in each cluser (columns):
 
 We were able to separate models with an unsupervised model. This could be useful in the future for determining 
 which exact machine (of a specific type) is malfunctioning on the factory floor.
-
 
 We focused on model id_04 for further analysis. 
 
