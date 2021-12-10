@@ -1,6 +1,9 @@
 # Data files
 Data/Source/
 Data/Features/
+!Data/Features/metadata_fan_all_samples.csv
+!Data/Features/features_fan_mel_spect_db_window_1.000_overlap_ratio_0.50_no_mel_bands_32.csv
+!Data/Features/params_fan_mel_spect_db_window_1.000_overlap_ratio_0.50_no_mel_bands_32.json
 
 # ipynb_checkpoints folders
 Metadata/.ipynb_checkpoints/

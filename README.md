@@ -119,6 +119,7 @@ first focused on samples from fans.
 
 In order to determine the optimum number of clusters, we used a method called the elbow method. 
 ![](Images/elbow_fan.png)
+
 The method suggested using 4 clusters, which we suspected corresponds to machine models.
 
 We clustered audio recordings from fans, and realized the automatically formed clusters indeed correspond 
