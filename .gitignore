@@ -11,7 +11,7 @@ Testing/.ipynb_checkpoints/
 # pycache
 __pycache__/
 Modeling/Models/__pycache__/
-Modeling/Models/One-class SVM/Ignore
+Modeling/Code/Models/One-class SVM/Ignore
 
 # Models
 Modeling/Models/
