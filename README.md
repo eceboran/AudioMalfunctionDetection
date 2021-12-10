@@ -78,20 +78,65 @@ After this normal detections are used to complement accuracy of the other malfun
 
 ### Models
 
-Two types of models have been trained for the detection, KNN algorithms and One-class SVMs. 
-Both of these models have been trained and tested on the full dataset and have been 
-cross-validated to avoid overfitting.
 
+Two types of models have been trained for the detection, KNN algorithms and One-class SVMs. 
+
+#### KNN
+
+The KNN model has been cross-validated to avoid overfitting.
 Details of the performance of KNN:
 
 ![](Images/acc_per_machine.png)
 
+#### One-class SVM
+The algorithm one-class SVM aims to model a large number of "normal" samples, then distinguish "abnormal" samples
+as those that deviate from the model, i.e. get a low score. We trained the classifier by adjusting the hyperparameters 
+that give the best classification for the validation set.
+Considering the nature of the problem, precision and recall are the best metrics to evaluate performance. In our problem,
+high precision means most of the samples that are labeled as abnormal are in fact abnormal. High precision ensures that 
+when workers are prompted to check a machine by the automatized system, they find a machine that is in fact abnormally 
+operating. This decreases maintenance costs. 
+On the other hand, high recall means most of the samples from machines that are operating abnormally 
+are cought by the automatized system and labeled as such. High recall ensures that abnormally operating machines 
+are detected in time. Then they can can go under the maintenance process and a failure is prevented.
 
-We plotted the precision-recall curve for the one-class SVM model, with different hyperparameters. 
+Precision and recall provided by our model can be chosen from a set of values. 
+The precision-recall curve for the one-class SVM model is plotted below, with different hyperparameters. 
 It has been trained on half the dataset and tested on the other half.
-We can select a classifier based on the client's priorities regarding precision and recall.
+
+We are able to adjust our model according to your priorities regarding precision and recall.
 ![](Images/one-class-svm-precision-recall.png)
 
+We would like to work on numerically expressing the cost of a failed maintenance or a false maintenance alarm. We
+can do this with numerical data from you. With this, we can choose the model parameters that minimize the total cost.
+
+### Clustering
+We aim to discover if the data you provided could be automatically labeled. This would allow saving substantial 
+time for further data you collect from the factory floor. We focused on labeling machine models, and anomalies.
+
+
+
+
+## Installation
+Download the repository from GitHub using:
+```python
+git@github.com:eceboran/AudioMalfunctionDetection.git
+```
+
+The packages required to run the project can be found in:
+```python
+requirements.txt
+```
+To install all required packages, follow these steps:
+- Crete and activate your virtual environment. 
+- Navigate to the main project repository that contains requirements.txt.
+- To install the required packages in pip, in the terminal, run:
+```python
+python3 -m pip install -r requirements.txt
+```
+- To install them with anaconda, run:
+```python
+conda install --file requirements.txt 
 
 This project used librosa <a href="https://doi.org/10.5281/zenodo.591533" rel=nofollow><img alt=DOI src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b9a66e7e2aad964da52c5254b5a75e4ebba92197/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e3539313533332e737667">
 <p>McFee, Brian, Colin Raffel, Dawen Liang, Daniel PW Ellis, Matt McVicar, Eric Battenberg, and Oriol Nieto. "librosa: Audio and music signal analysis in python." In Proceedings of the 14th python in science conference, pp. 18-25. 2015.</p>

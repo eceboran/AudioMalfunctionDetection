@@ -1,7 +1,7 @@
 import numpy as np
 import librosa
 
-def get_mel_frequency_bands(fs, n_mels, n_fft = 1000, fmin=0, fmax=None):
+def get_mel_frequency_bands(fs, n_mels, n_fft=1000, fmin=0, fmax=None):
 
     # Default min frequency is zero
     # Default max frequency is half of the sampling frequency
