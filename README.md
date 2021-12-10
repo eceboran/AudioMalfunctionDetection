@@ -114,6 +114,16 @@ can do this with numerical data from you. With this, we can choose the model par
 We aim to discover if the data you provided could be automatically labeled. This would allow saving substantial 
 time for further data you collect from the factory floor. We focused on labeling machine models, and anomalies.
 
+We clustered audio recordings from fans, and realized the automatically formed clusters correspond 
+strongly to fan models. Below is a graph with 4 clusters. In the top graph, colors represent clusters, in the bottom 
+graph, colors represent fan models. 
+
+![](Images/fan_model_4_clusters.png)
+
+Below are the number of samples from each model (rows) in each cluser (columns):
+
+![](Images/fan_model_4_clusters_confusion_matrix.png)
+
 
 
 
@@ -137,6 +147,8 @@ python3 -m pip install -r requirements.txt
 - To install them with anaconda, run:
 ```python
 conda install --file requirements.txt 
+
+
 
 This project used librosa <a href="https://doi.org/10.5281/zenodo.591533" rel=nofollow><img alt=DOI src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b9a66e7e2aad964da52c5254b5a75e4ebba92197/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e3539313533332e737667">
 <p>McFee, Brian, Colin Raffel, Dawen Liang, Daniel PW Ellis, Matt McVicar, Eric Battenberg, and Oriol Nieto. "librosa: Audio and music signal analysis in python." In Proceedings of the 14th python in science conference, pp. 18-25. 2015.</p>
