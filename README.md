@@ -148,7 +148,7 @@ Below are the number of samples from each model (rows) in each cluser (columns):
 
 Unsupervised learning reveals 4 clusters, one of which corresponds to normal operation. 
 The other 3 clusters represent mostly abnormal sounds. We believe these correspond to 
-different types of malfunctioning by the machine. We believe with further improvements on the classifier, we will 
+different types of malfunctioning by the machine. With further improvements on the classifier, we will 
 be able to identify what type of maintenance will be required for a specific machine, in addition to the 
 timing of maintenance.
 
@@ -178,6 +178,7 @@ conda install --file requirements.txt
 Run the notebooks below for results:
 - [Code/Modeling/Unsupervised/unsupervised_fan_load_features.ipynb](Code/Modeling/Unsupervised/unsupervised_fan_load_features.ipynb)
 - [Code/Modeling/Unsupervised/unsupervised_fan_model_load_features.ipynb](Code/Modeling/Unsupervised/unsupervised_fan_model_load_features.ipynb)
+
 
 
 This project uses librosa <a href="https://doi.org/10.5281/zenodo.591533" rel=nofollow><img alt=DOI src="https://warehouse-camo.ingress.cmh1.psfhosted.org/b9a66e7e2aad964da52c5254b5a75e4ebba92197/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f444f492f31302e353238312f7a656e6f646f2e3539313533332e737667">
